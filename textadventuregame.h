@@ -1,9 +1,9 @@
 #pragma once
 
+#include "commandparser.h"
 #include <QWidget>
 
-class QLineEdit;
-class QTextEdit;
+class QStringListModel;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TextAdventureGame; }
@@ -19,6 +19,14 @@ public:
 
 private:
     Ui::TextAdventureGame *ui;
+    QStringListModel *m_roomsVisited{nullptr};
+    CommandParser m_commandParser;
+    QList<QString> m_roomData;
+    int m_currentRoom{0};
+
+    void initialiseRoomData();
+    void displayTextForRoom(int room);
+    void visitRoom(int room);
 
 private slots:
     void onCommandTyped(const QString &command);
