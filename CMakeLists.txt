@@ -19,12 +19,15 @@ set(PROJECT_SOURCES
         textadventuregame.ui
 )
 
+add_subdirectory(textadventureglitch_unittest)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(TextAdventureGlitch
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
 
         commandparser.h commandparser.cpp
+        # unittest/tst_mytest01.cpp
 
     )
 # Define target properties for Android with Qt 6 as:
